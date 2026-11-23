@@ -76,6 +76,20 @@ dotnet build -c Release
 `Starfall.csproj` targets `net48` and sets `LangVersion` 5 so the source stays
 compatible with the in-box compiler used by `build.ps1`.
 
+### 32-bit / Win32
+
+The game is pure managed IL with P/Invoke only to `kernel32`/`user32`; there is no
+64-bit-specific code, so the default AnyCPU build also runs on 32-bit Windows. An
+explicit Win32 build is available too:
+
+```bat
+:: -Platform anycpu (default) | x86 | x64, -OutFile optional
+powershell -NoProfile -ExecutionPolicy Bypass -File build.ps1 -Platform x86 -OutFile build\Starfall32.exe
+```
+
+That produces a PE32 executable with the `32BITREQUIRED` CLR flag set; it runs under
+WoW64 on 64-bit Windows.
+
 ## Diagnostics, headless demo and screenshots
 
 ```bat
