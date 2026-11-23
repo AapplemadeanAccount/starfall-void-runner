@@ -1,0 +1,15 @@
+# build output
+build/
+bin/
+obj/
+
+# generated demo frames (plain-text escape dumps)
+preview/*.ansi
+soak/
+
+# local build tooling (portable git / gh / .NET 4.8 reference assemblies)
+tools/git/
+tools/gh/
+tools/*.zip
+tools/net48refs/
+tools/*.log
